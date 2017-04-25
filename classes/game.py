@@ -1,3 +1,5 @@
+import random
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -31,3 +33,10 @@ class Person:
         self.df = df
         self.magic = magic
         self.actions = ["Attack", "Magic"]
+
+    def generate_damage(self):
+        """
+        Generates a random damage
+        :return: a random damage number
+        """
+        return random.randrange(self.atkl, self.atkh)
