@@ -64,3 +64,14 @@ class Person:
         mgl = self.magic[i]["dmg"] - 5
         mgh = self.magic[i]["dmg"] + 5
         return random.randrange(mgl, mgh)
+
+    def take_damage(self, dmg):
+        """
+        Function to tell how much damage we took
+        :param dmg: the damage we've taken
+        :return: How much HP the player has left
+        """
+        self.hp -= dmg
+        if self.hp < 0:
+            self.hp = 0
+        return self.hp
