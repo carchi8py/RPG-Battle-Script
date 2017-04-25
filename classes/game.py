@@ -1,6 +1,9 @@
 import random
 
 class bcolors:
+    """
+    bcolors is a class with the terminal colors we are going to be using
+    """
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -17,7 +20,18 @@ class bcolors:
         self.ENDC = ''
 
 class Person:
+    """
+    Person is a class with our hero
+    """
     def __init__(self, hp, mp, atk, df, magic):
+        """
+        Set up our here
+        :param hp: The heroes HP
+        :param mp: The heroes mp
+        :param atk: The Heroes attack
+        :param df: The heroes defence
+        :param magic: the heroes magic
+        """
         #our max hit points
         self.maxhp = hp
         #our current hit point
