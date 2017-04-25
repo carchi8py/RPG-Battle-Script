@@ -54,3 +54,13 @@ class Person:
         :return: a random damage number
         """
         return random.randrange(self.atkl, self.atkh)
+
+    def generate_spell_damage(self, i):
+        """
+        Generate spell damage
+        :param i: The spell the player is using
+        :return: the damage the spell did
+        """
+        mgl = self.magic[i]["dmg"] - 5
+        mgh = self.magic[i]["dmg"] + 5
+        return random.randrange(mgl, mgh)
