@@ -75,3 +75,76 @@ class Person:
         if self.hp < 0:
             self.hp = 0
         return self.hp
+
+    def get_hp(self):
+        """
+        Get the Heroes HP
+        :return: Heroes current hp
+        """
+        return self.hp
+
+    def get_max_hp(self):
+        """
+        Get the Heroes Max HP that they can have
+        :return: Max HP a the hero can have
+        """
+        return self.maxhp
+
+    def get_mp(self):
+        """
+        Get Heroes Magic points
+        :return: Current magic points
+        """
+        return self.mp
+
+    def get_max_mp(self):
+        """
+        Get Heroes total magic points
+        :return: Max MP a hero can have
+        """
+        return self.maxmp
+
+    def reduce_mp(self, cost):
+        """
+        Reduce mp when a hero cast a spell
+        :param cost: The cost of the spell
+        :return: How much MP they have left
+        """
+        self.mp -= cost
+
+    def get_spell_name(self , i):
+        """
+        Get the magic spell name
+        :param i: The magic spell the hero wants to cast
+        :return: the name of the spell
+        """
+        return self.magic[i]["name"]
+
+    def get_spell_mp_cost(self, i):
+        """
+        Get the spell cost
+        :param i: The magic spell the hero wants to cast
+        :return: The cost of the spell
+        """
+        return self.magic[i]["cost"]
+
+    def choose_action(self):
+        """
+        The action the hero is going to take
+        :return: print the action the hero is taking
+        """
+        i = 1
+        for item in self.actions:
+            print(str(i) + ":", item)
+            i += 1
+
+    def choose_magic(self):
+        """
+        The magic spell the hero is going to cast
+        :return: prints the spell and cost the hero is going to cast
+        """
+        i = 1
+        for spell in self.magic:
+            print(str(i) + ":", spell["name"], "(cost:", str(spell["mp"]) + ")")
+
+
