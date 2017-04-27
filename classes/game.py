@@ -1,5 +1,4 @@
 import random
-from . magic import Spell
 
 class bcolors:
     """
@@ -26,7 +25,7 @@ class Person:
     """
     Person is a class with our hero
     """
-    def __init__(self, hp, mp, atk, df, magic):
+    def __init__(self, hp, mp, atk, df, magic, items):
         """
         Set up our here
         :param hp: The heroes HP
@@ -49,7 +48,8 @@ class Person:
         self.atkh = atk + 10
         self.df = df
         self.magic = magic
-        self.actions = ["Attack", "Magic"]
+        self.items = items
+        self.actions = ["Attack", "Magic", "Items"]
 
     def generate_damage(self):
         """
@@ -121,9 +121,9 @@ class Person:
         :return: print the action the hero is taking
         """
         i = 1
-        print(bcolors.OKBLUE + bcolors.BOLD + "Actions" + bcolors.ENDC)
+        print(bcolors.OKBLUE + bcolors.BOLD + "ACTIONS" + bcolors.ENDC)
         for item in self.actions:
-            print(str(i) + ":", item)
+            print("    " + str(i) + ".", item)
             i += 1
 
     def choose_magic(self):
@@ -132,9 +132,18 @@ class Person:
         :return: prints the spell and cost the hero is going to cast
         """
         i = 1
-        print(bcolors.OKBLUE + bcolors.BOLD + "Magic" + bcolors.ENDC)
+        print(bcolors.OKBLUE + bcolors.BOLD + "MAGIC" + bcolors.ENDC)
         for spell in self.magic:
-            print(str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
+            print("    " + str(i) + ".", spell.name, "(cost:", str(spell.cost) + ")")
             i += 1
 
-
+    def choose_item(self):
+        """
+        The item the hero is going to use
+        :return: Print the item the hero is going to use
+        """
+        i = 1
+        print(bcolors.OKGREEN + bcolors.BOLD + "ITEMS" + bcolors.ENDC)
+        for item in self.items:
+            print("    " + str(i) + ".", item.name, ":", item.description, " (x5)" )
+            i += 1
