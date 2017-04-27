@@ -136,7 +136,7 @@ class Person:
         :return: print the action the hero is taking
         """
         i = 1
-        print("Actions")
+        print(bcolors.OKBLUE + bcolors.BOLD + "Actions" + bcolors.ENDC)
         for item in self.actions:
             print(str(i) + ":", item)
             i += 1
@@ -147,7 +147,7 @@ class Person:
         :return: prints the spell and cost the hero is going to cast
         """
         i = 1
-        print("Magic")
+        print(bcolors.OKBLUE + bcolors.BOLD + "Magic" + bcolors.ENDC)
         for spell in self.magic:
             print(str(i) + ":", spell["name"], "(cost:", str(spell["mp"]) + ")")
 

@@ -10,3 +10,12 @@ enemy = Person(1200, 65, 45, 25, magic)
 
 running = True
 print(bcolors.FAIL + bcolors.BOLD + "AN EMEMY ATTACKS!" + bcolors.ENDC)
+
+while running:
+    print ("========================")
+    player.choose_action()
+    choice = input("Choose actions:")
+    index = int(choice) - 1
+    print("You chose", index)
+
+    running = False
