@@ -10,7 +10,7 @@ quake = Spell("Quake", 14, 140, "black")
 
 #create white magic
 cure = Spell("Cure", 12, 120, "white")
-cura = Spell("Cura", 18, 200, "White")
+cura = Spell("Cura", 18, 200, "white")
 
 #Set up our player
 player = Person(460, 65, 60, 34, [fire, thunder, blizzard, meteor, cure, cura])
@@ -44,8 +44,12 @@ while running:
             print(bcolors.FAIL + "\n Not enought MP\n" + bcolors.ENDC)
             continue
         player.reduce_mp(spell.cost)
-        enemy.take_damage(magic_dmg)
-        print(bcolors.OKBLUE + "\n" + spell.name + " deals", str(magic_dmg), bcolors.ENDC)
+        if spell.type == "white":
+            player.heal(magic_dmg)
+            print(bcolors.OKBLUE + "\n" + spell.name + "heals for", str(magic_dmg), "HP." + bcolors.ENDC)
+        elif spell.type == "black":
+            enemy.take_damage(magic_dmg)
+            print(bcolors.OKBLUE + "\n" + spell.name + " deals", str(magic_dmg), bcolors.ENDC)
 
 
     # the Enemy attacks

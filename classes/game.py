@@ -69,6 +69,16 @@ class Person:
             self.hp = 0
         return self.hp
 
+    def heal(self, dmg):
+        """
+        Heals the player
+        :param dmg: The ammount to heal the player
+        :return: 
+        """
+        self.hp += dmg
+        if self.hp > self.maxhp:
+            self.hp = self.maxhp
+
     def get_hp(self):
         """
         Get the Heroes HP
