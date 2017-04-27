@@ -16,6 +16,16 @@ while running:
     player.choose_action()
     choice = input("Choose actions:")
     index = int(choice) - 1
-    print("You chose", index)
 
-    running = False
+    #we attack the enemy
+    if index == 0:
+        dmg = player.generate_damage()
+        enemy.take_damage(dmg)
+        print("You attacked for", dmg, " points of damage. Enemy HP", enemy.get_hp())
+
+    # the Enemy attacks
+    enemy_choice = 1
+    enemy_dmg = enemy.generate_damage()
+    player.take_damage(enemy_dmg)
+    print("Enemy attacks for ", enemy_dmg, " Player HP ", player.get_hp())
+
