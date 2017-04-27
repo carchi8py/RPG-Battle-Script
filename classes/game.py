@@ -1,4 +1,5 @@
 import random
+from . magic import Spell
 
 class bcolors:
     """
@@ -57,16 +58,6 @@ class Person:
         """
         return random.randrange(self.atkl, self.atkh)
 
-    def generate_spell_damage(self, i):
-        """
-        Generate spell damage
-        :param i: The spell the player is using
-        :return: the damage the spell did
-        """
-        mgl = self.magic[i]["dmg"] - 5
-        mgh = self.magic[i]["dmg"] + 5
-        return random.randrange(mgl, mgh)
-
     def take_damage(self, dmg):
         """
         Function to tell how much damage we took
@@ -114,22 +105,6 @@ class Person:
         """
         self.mp -= cost
 
-    def get_spell_name(self , i):
-        """
-        Get the magic spell name
-        :param i: The magic spell the hero wants to cast
-        :return: the name of the spell
-        """
-        return self.magic[i]["name"]
-
-    def get_spell_mp_cost(self, i):
-        """
-        Get the spell cost
-        :param i: The magic spell the hero wants to cast
-        :return: The cost of the spell
-        """
-        return self.magic[i]["cost"]
-
     def choose_action(self):
         """
         The action the hero is going to take
@@ -149,7 +124,7 @@ class Person:
         i = 1
         print(bcolors.OKBLUE + bcolors.BOLD + "Magic" + bcolors.ENDC)
         for spell in self.magic:
-            print(str(i) + ":", spell["name"], "(cost:", str(spell["cost"]) + ")")
+            print(str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
             i += 1
 
 
