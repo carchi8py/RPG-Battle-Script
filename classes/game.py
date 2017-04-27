@@ -10,6 +10,8 @@ class bcolors:
     WARNING = '\033[93m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
     def disable(self):
         self.HEADER = ''
@@ -134,6 +136,7 @@ class Person:
         :return: print the action the hero is taking
         """
         i = 1
+        print("Actions")
         for item in self.actions:
             print(str(i) + ":", item)
             i += 1
@@ -144,6 +147,7 @@ class Person:
         :return: prints the spell and cost the hero is going to cast
         """
         i = 1
+        print("Magic")
         for spell in self.magic:
             print(str(i) + ":", spell["name"], "(cost:", str(spell["mp"]) + ")")
 
